@@ -3,11 +3,18 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .navlink {
     text-decoration: none;
-    font-size: 30px;
-    margin: 30px;
+    font-size: 25px;
+    margin: 40px;
+    font-weight: 600;
+}
+
+.navbar-container :hover {
+    transform: scale(1.2);
+    font-weight: 900;
+    color: #FF0075
 }
