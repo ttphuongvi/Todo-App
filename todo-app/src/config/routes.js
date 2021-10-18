@@ -1,10 +1,14 @@
 import Todo from '../components/AddTodo/Todo'
-// import React from 'react'
+import TodoAppTimeline from '../components/TodoAppTimeline/TodoAppTimeline'
 
 const routes = [
     {
         path: "/Todo-App",
         component: Todo
+    },
+    {
+        path: "/TodoApp-Timeline",
+        component: TodoAppTimeline
     }
 ]
     
