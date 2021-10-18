@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import {Switch, BrowserRouter} from 'react-router-dom'
+import NavBar from './components/NavBar/NavBar';
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 
@@ -9,14 +10,9 @@ const  TodoApp = () => {
     <div className="Todo-App">
       {/* <BrowserRouter> */}
         <Header/>
-        {/* <Switch>
-            {routes.map((item, index) => {
-              return (
-                <MyRoute key={index} path={item.path} component={item.component} />
-              )
-            })}
-        </Switch>
-      </BrowserRouter>    */}
+        <NavBar/>
+        
+      
       <Footer></Footer> 
     </div>
   );

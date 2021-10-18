@@ -3,11 +3,15 @@ import TodoAppTimeline from '../components/TodoAppTimeline/TodoAppTimeline'
 
 const routes = [
     {
-        path: "/Todo-App",
+        name: "TODO APP",
+        link: "/Todo-App",
+        exact: "true",
         component: Todo
     },
     {
-        path: "/TodoApp-Timeline",
+        name: "TIMELINE",
+        link: "/TodoApp-Timeline",
+        exact: "false",
         component: TodoAppTimeline
     }
 ]
