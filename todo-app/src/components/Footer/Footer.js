@@ -6,7 +6,7 @@ const Footer = () => {
         <div className="footer-container">
             <div className="footer-content">
             <p>Được thực hiện bởi: </p>
-            <a href="https://github.com/ttphuongvi" target="_blank" className="profile-1">Trịnh Thị Phương Vi</a>
+            <a href="https://github.com/ttphuongvi/Todo-App" target="_blank" className="profile-1">Trịnh Thị Phương Vi</a>
             </div>
         </div>
     )
