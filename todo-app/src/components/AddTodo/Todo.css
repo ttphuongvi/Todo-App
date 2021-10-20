@@ -1,5 +1,5 @@
 .container-todoList {
-    background-color: #eeeeee;
+    /* background-color: #eeeeee; */
 }
 
 .form-add-todo {
@@ -8,7 +8,7 @@
     align-content: center;
     justify-content: center;
     align-items: center;
-    background-color: #eeeeee;
+    /* background-color: #eeeeee; */
 }
 
 
@@ -113,7 +113,7 @@ input[type="text"] {
 }
 
 .effect {
-    border: 1px solid #ccc;
+    border: 1px solid rgb(98, 91, 161);
     padding: 7px 14px 9px;
     transition: 0.4s;
     border-radius: 5px;
@@ -178,9 +178,10 @@ input[type="text"] {
     align-items: center;
     align-content: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    min-width: 50%;
-    max-width: 50%;
+    min-width: 35%;
+    max-width: 35%;
     margin-top: 30px;
+    margin-bottom: 15px;
     border-width: 5px;
     padding: 8px;
     border-right: #170055 solid;
@@ -189,6 +190,7 @@ input[type="text"] {
 
 .deadline {
     background-color: #1dd310;
+    min-width: 80px;
     color: #fff;
     padding: 5px;
     margin-right: 10px;

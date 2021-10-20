@@ -13,9 +13,18 @@ const TodoList = () => {
             deadline: "23/10/2021"
         }
     ]
+    const [newTask, setNewTask] = useState('')
+    const [deadline, setDeadline] = useState('')
     const handleClickAdd = (e) => {
         e.preventDefault();
-        console.log(e.target)
+        // console.log(newTask)
+        const AddTask = {
+            newTask: newTask,
+            deadline: deadline
+        };
+        console.log(AddTask);
+        setTodos([...todos, AddTask])
+        setNewTask('');
     };
     const [todos, setTodos] = useState(data);
     return (
@@ -24,7 +33,9 @@ const TodoList = () => {
             <section className="form-input">
                 <label>New Task:</label>
                 <div className="input">
-                    <input className="effect" type="text" />
+                    <input value={newTask} onChange={(e) => {setNewTask(e.target.value);
+                     /*console.log(newTask)*/;}} 
+                    className="effect" type="text" />
                         <span className="focus-border">
                         <i></i>
                         </span>
@@ -33,7 +44,8 @@ const TodoList = () => {
             <section className="form-input">
                 <label>Deadline:</label>
                 <div className="input">
-                    <input className="effect" type="text" />
+                    <input  onChange={(e) => {setDeadline(e.target.value); console.log(deadline);}} 
+                    className="effect" type="text" />
                         <span className="focus-border">
                         <i></i>
                         </span>

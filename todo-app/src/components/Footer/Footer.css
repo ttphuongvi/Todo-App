@@ -1,6 +1,6 @@
 .footer-container {
     bottom: 0px;
-    position: absolute;
+    position: fixed;
     background-color: #eeeeee;
     width: 100%;
     color: #757575;
