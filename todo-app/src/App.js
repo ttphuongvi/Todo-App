@@ -3,14 +3,18 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-
+import { MyContextProvider } from './context/MyContext';
 const  TodoApp = () => {
   return (
-    <div className="Todo-App">
+    
+      <MyContextProvider>
+      <div className="Todo-App">
         <Header/>
         <NavBar/>
-      <Footer></Footer> 
-    </div>
+        <Footer></Footer> 
+        </div>
+      </MyContextProvider>
+    
   );
 }
 

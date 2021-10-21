@@ -1,5 +1,5 @@
 .container-todoList {
-    /* background-color: #eeeeee; */
+    background-color: #eeeeee;
 }
 
 .form-add-todo {
@@ -50,6 +50,11 @@ label {
     border: none;
     background: #1C0C5B;
     background: linear-gradient((0deg, #1C0C5B) 0%, #3D2C8D 100%);
+}
+
+.btn {
+    justify-content: center;
+    display: flex;
 }
 
 .add-new-task:hover {
@@ -171,6 +176,7 @@ input[type="text"] {
     transition: 0.4s;
 }
 
+
 .form-newTask {
     margin: 0 auto;
     display: flex;
@@ -191,6 +197,7 @@ input[type="text"] {
 .deadline {
     background-color: #1dd310;
     min-width: 80px;
+    min-height: 30px;
     color: #fff;
     padding: 5px;
     margin-right: 10px;
