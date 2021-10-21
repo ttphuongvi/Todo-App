@@ -2,27 +2,28 @@ import React, { useContext } from 'react'
 import './Todo.css'
 import { useState, useEffect } from 'react'
 import { MyContext } from '../../context/MyContext'
+import {TodoContext} from '../../context/TodoContext'
 // import {useCookies} from 'react-cookie'
 // import Datetime from 'react-datetime
+
 const TodoList = () => {
+    // const data = [
+    //     {
+    //         id: 1,
+    //         newTask: "Hoc ReactJs va lam do an",
+    //         isCompleted: false,
+    //         deadline: "23/10/2021"
+    //     },
 
-
-    const data = [
-        {
-            id: 1,
-            newTask: "Hoc ReactJs va lam do an",
-            isCompleted: false,
-            deadline: "23/10/2021"
-        },
-
-        {
-            id: 2,
-            newTask: "Hoc ReactJs",
-            isCompleted: false,
-            deadline: "23/10/2021"
-        }
-    ]
- 
+    //     {
+    //         id: 2,
+    //         newTask: "Hoc ReactJs",
+    //         isCompleted: false,
+    //         deadline: "23/10/2021"
+    //     }
+    // ]
+    // const [data, setData] = useState([])
+    const {data, setData} = useContext(TodoContext)
     const [newTask, setNewTask] = useState('')
     const [deadline, setDeadline] = useState('')
     const handleClickAdd = (e) => {
@@ -33,14 +34,14 @@ const TodoList = () => {
             deadline: deadline
         };
         console.log(AddTask);
-        setTodos([...todos, AddTask])
+        setData([...data, AddTask])
         // setNewTask('');
     };
     const [counter, setCounter] = useState(0)
     const onClickAdd = () => {
         setCounter(counter + 1);
     };
-    const [todos, setTodos] = useState(data);
+    // const [todos, setTodos] = useState(data);
     const {setCount} = useContext(MyContext)
     useEffect(() => {
         console.log('State Change')
@@ -58,7 +59,8 @@ const TodoList = () => {
     },[counter]);
     return (
         <section className="container-todoList">
-        <form className="form-add-todo">
+        
+                <form className="form-add-todo">
             <section className="form-input">
                 <label>New Task:</label>
                 <div className="input">
@@ -84,20 +86,23 @@ const TodoList = () => {
             </section>
             
         </form>
-       <div className="btn"> <button onClick={onClickAdd} className=" custom-btn add-new-task">ADD</button></div>
+         
+       <div className="btn"> <button onClick={handleClickAdd} className=" custom-btn add-new-task">ADD</button></div>
         <div>Số lượng: {counter}</div>
 
-        <div>
-            {todos.map((value, index) => {
-                return (
-                    <form key={index} className="form-newTask">
-                        <div className="deadline">{value.deadline}</div>
-                        <div className="newTask">{value.newTask}</div>
+    <div>
+    {data.map((item) => {
+        //process js
+
+        return (
+            <form className="form-newTask">
+                        <div className="deadline">{item.deadline}</div>
+                        <div className="newTask">{item.newTask}</div>
                     </form>
-                )
-            })}
-        </div>
-        </section>
+        )
+    })}
+    </div>
+         </section>
     )
 }
 
