@@ -16,7 +16,7 @@ const initData = [
     {
         "id": 2,
         "newTask": "Hoc ReactJs",
-        "isCompleted": false,
+        "isCompleted": true,
         "deadline": "23/10/2021"
     }
 ]

@@ -7,22 +7,6 @@ import {TodoContext} from '../../context/TodoContext'
 // import Datetime from 'react-datetime
 
 const TodoList = () => {
-    // const data = [
-    //     {
-    //         id: 1,
-    //         newTask: "Hoc ReactJs va lam do an",
-    //         isCompleted: false,
-    //         deadline: "23/10/2021"
-    //     },
-
-    //     {
-    //         id: 2,
-    //         newTask: "Hoc ReactJs",
-    //         isCompleted: false,
-    //         deadline: "23/10/2021"
-    //     }
-    // ]
-    // const [data, setData] = useState([])
     const {data, setData} = useContext(TodoContext)
     const [newTask, setNewTask] = useState('')
     const [deadline, setDeadline] = useState('')
@@ -36,11 +20,9 @@ const TodoList = () => {
         console.log(AddTask);
         setData([...data, AddTask])
         // setNewTask('');
-    };
-    const [counter, setCounter] = useState(0)
-    const onClickAdd = () => {
         setCounter(counter + 1);
     };
+    const [counter, setCounter] = useState(0)
     // const [todos, setTodos] = useState(data);
     const {setCount} = useContext(MyContext)
     useEffect(() => {
