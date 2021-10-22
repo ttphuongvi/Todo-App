@@ -3,7 +3,7 @@ import './TodoForm.css'
 import TodoForm from "./TodoForm";
 import Todo from "./Todo1";
 import {MyContext} from '../../context/MyContext'
-
+import {TodoContext} from '../../context/TodoContext'
 function TodoList() {
     const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")?? "[]"));
     const addTodo = (todo) => {
@@ -25,16 +25,20 @@ function TodoList() {
             prev.map((item) => (item.id === todoId ? newValue : item))
         );
     };
+    const [newTask, setNewTask] = useState(0)
+    const [deadline, setDeadline] = useState(0)
     const [counter, setCounter] = useState(0)
     const {setCount} = useContext(MyContext)
     useEffect(() => {
         console.log('Counter Change');
         setCount(counter);
     },[counter]);
+    const {data, setData} = useContext(TodoContext)
     const removeTodo = (id) => {
         const removedArr = [...todos].filter((todo) => todo.id !== id);
         setCounter(counter - 1);
         setTodos(removedArr);
+        
     };
 
     const completeTodo = (id) => {

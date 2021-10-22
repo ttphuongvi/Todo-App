@@ -8,7 +8,6 @@ import {RiCloseCircleLine} from 'react-icons/ri'
 import { TodoContext } from '../../context/TodoContext';
 
 const Todo1 = ({ todos, completeTodo, removeTodo, updateTodo }) => {
-    const {data, setData} = useContext(TodoContext)
   const [edit, setEdit] = useState({
     id: null,
     value: '',

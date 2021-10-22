@@ -6,10 +6,27 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import { ReactComponent as WorkIcon } from "./work.svg";
 import { ReactComponent as SchoolIcon } from "./school.svg";
-import {TodoList} from '../TodoForm/TodoList'
+
 export function TodoAppTimeline() {
-    const { data } = useContext(TodoContext);
-    const {count} = useContext(MyContext);
+    const { data, setData } = useContext(TodoContext);
+    const {count, setCount} = useContext(MyContext);
+    const onClickDeleted = (e) => {
+        if(e<0) return;
+        const newValue = data;
+        newValue.splice(e,1);
+        setData([...newValue]);
+        setCount(count - 1);
+    }
+    const completeClick = (e) => {
+        const newValue = data;
+        newValue[e].isCompleted=true;
+        setData([...newValue]);
+    }
+    const unCompleteClick = (e) => {
+        const newValue = data;
+        newValue[e].isCompleted=false;
+        setData([...newValue]);
+    }
     return (
         <>
         
@@ -17,7 +34,7 @@ export function TodoAppTimeline() {
         <div style={{ backgroundColor: '#3da3d5' }}>
         
             <VerticalTimeline>
-                {data.map((item) => {
+                {data.map((item, index) => {
                     return (
                         <VerticalTimelineElement
                             key={item.id}
@@ -34,18 +51,20 @@ export function TodoAppTimeline() {
                             <h5 className="vertical-timeline-element-subtitle">
                                 {item.deadline}
                             </h5>
-                            {!item.isCompleted && (
-                                <button className={item.isCompleted ? 'completed' : 'unCompleted'}
+                            <h2>{item.isCompleted ? 'Uncomplete' : 'Complete'}</h2>
+                            {!item.isCompleted ? (
+                                <button onClick={() => completeClick(index)} className={item.isCompleted ? 'Uncompleted' : 'completed'}
                                 style={{ padding: 9, margin: 3, backgroundColor: '#06d6a0', color: 'white' }}>
                                     Complete
                                 </button>
-                            )}
-                            {item.isCompleted && (
-                                <button className={item.isCompleted ? 'completed' : 'unCompleted'}
+                            ) :
+                            (
+                                <button onClick={ () => unCompleteClick(index)} className={item.isCompleted ? 'uncompleted' : 'completed'}
                                  style={{ padding: 9, margin: 3, backgroundColor: 'red', color: 'white' }}>
                                     Uncomplete
                                 </button>
                             )}
+                            <button onClick= {() => onClickDeleted(index)}>Delete</button>
                         </VerticalTimelineElement>
                     )
                 })}

@@ -21,7 +21,6 @@ const TodoForm = (props) => {
     const [counter, setCounter] = useState(0)
     const handleSubmit = (e) => {
         e.preventDefault();
-
         props.onSubmit({
             id: Math.floor(Math.random() * 10000),
             text: newTask,
