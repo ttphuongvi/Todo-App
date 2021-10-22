@@ -10,8 +10,10 @@ export function TodoAppTimeline() {
     const { data } = useContext(TodoContext);
     const {count} = useContext(MyContext);
     return (
-        <div style={{ backgroundColor: '#3da3d5' }}>
+        <>
         <div>Số lượng: {count}</div>  
+        <div style={{ backgroundColor: '#3da3d5' }}>
+        
             <VerticalTimeline>
                 {data.map((item) => {
                     return (
@@ -21,7 +23,7 @@ export function TodoAppTimeline() {
                             className="vertical-timeline-element--work"
                             iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
                             contentStyle={{ color: "rgb(33, 150, 243)", background: "#fff" }}
-                            contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
+                            contentArrowStyle={{ borderRight: "7px solid  #fff" }}
                             icon={item.isCompleted ? <SchoolIcon /> : <WorkIcon />}
                         >
                             <h3 className="vertical-timeline-element-title">
@@ -35,11 +37,17 @@ export function TodoAppTimeline() {
                                     Complete
                                 </button>
                             )}
+                            {item.isCompleted && (
+                                <button style={{ padding: 9, margin: 3, backgroundColor: 'red', color: 'white' }}>
+                                    Uncomplete
+                                </button>
+                            )}
                         </VerticalTimelineElement>
                     )
                 })}
             </VerticalTimeline>
         </div>
+        </>
     );
 };
 export default TodoAppTimeline;

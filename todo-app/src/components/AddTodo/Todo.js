@@ -6,7 +6,7 @@ import {TodoContext} from '../../context/TodoContext'
 // import {useCookies} from 'react-cookie'
 // import Datetime from 'react-datetime
 
-const TodoList = () => {
+const TodoList = (props) => {
     const {data, setData} = useContext(TodoContext)
     const [newTask, setNewTask] = useState('')
     const [deadline, setDeadline] = useState('')
@@ -77,10 +77,17 @@ const TodoList = () => {
         //process js
 
         return (
+            <>
             <form className="form-newTask">
-                        <div className="deadline">{item.deadline}</div>
-                        <div className="newTask">{item.newTask}</div>
-                    </form>
+            {/* {props.edit ? ( */}
+                <div className="deadline">{item.deadline}</div>
+                <div className="newTask">{item.newTask}</div>
+                <button className="todo-button edit">
+                        Cập nhật
+                    </button>
+            </form>
+            
+            </>
         )
     })}
     </div>

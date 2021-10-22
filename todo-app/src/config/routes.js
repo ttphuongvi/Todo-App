@@ -1,4 +1,5 @@
 import Todo from '../components/AddTodo/Todo'
+import TodoList from '../components/TodoForm/TodoList';
 import TodoAppTimeline from '../components/TodoAppTimeline/TodoAppTimeline'
 
 const routes = [
@@ -13,6 +14,12 @@ const routes = [
         link: "/TodoApp-Timeline",
         exact: "false",
         component: TodoAppTimeline
+    },
+    {
+        name: "To do",
+        link: "/Todo",
+        exact: "false",
+        component: TodoList
     }
 ]
     
