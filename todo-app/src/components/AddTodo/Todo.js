@@ -8,8 +8,10 @@ import {TodoContext} from '../../context/TodoContext'
 
 const TodoList = (props) => {
     const {data, setData} = useContext(TodoContext)
-    const [newTask, setNewTask] = useState('')
-    const [deadline, setDeadline] = useState('')
+    // const [newTask, setNewTask] = useState('')
+    // const [deadline, setDeadline] = useState('')
+    const [newTask, setNewTask] = useState(props.edit ? props.edit.value : "");
+    const [deadline, setDeadline] = useState(props.edit ? props.edit.value : "");
     const handleClickAdd = (e) => {
         e.preventDefault();
         // console.log(newTask)
@@ -21,6 +23,18 @@ const TodoList = (props) => {
         setData([...data, AddTask])
         // setNewTask('');
         setCounter(counter + 1);
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        props.onSubmit({
+            id: Math.floor(Math.random() * 10000),
+            newTask: newTask,
+            deadline: deadline
+        });
+        setNewTask("");
+        setDeadline("");
+        
     };
     const [counter, setCounter] = useState(0)
     // const [todos, setTodos] = useState(data);
@@ -40,35 +54,31 @@ const TodoList = (props) => {
         setCount(counter);
     },[counter]);
     return (
-        <section className="container-todoList">
         
-                <form className="form-add-todo">
-            <section className="form-input">
-                <label>New Task:</label>
-                <div className="input">
-                
-                    <input  value={newTask} onChange={(e) => {setNewTask(e.target.value)}} 
-                    className="effect" type="text" ></input>
+        <section className="container-todoList">
+            <form className="form-add-todo">
+                <section className="form-input">
+                    <label>New Task:</label>
+                    <div className="input">
+                        <input  value={newTask} onChange={(e) => {setNewTask(e.target.value)}} 
+                        className="effect" type="text" ></input>
                         <span className="focus-border">
                         <i></i>
                         </span>
-                        
-                </div>
-            </section>
-            <section className="form-input">
-                <label>Deadline:</label>
-                <div className="input">
-                    <input  onChange={(e) => {setDeadline(e.target.value); console.log(deadline);}} 
-                    className="effect" type="text" />
+                    </div>
+                </section>
+                <section className="form-input">
+                    <label>Deadline:</label>
+                    <div className="input">
+                        <input  onChange={(e) => {setDeadline(e.target.value); console.log(deadline);}} 
+                        className="effect" type="text" />
                         <span className="focus-border">
                         <i></i>
                         </span>
                     {/* <Datetime></Datetime> */}
-                </div>
-            </section>
-            
-        </form>
-         
+                    </div>
+                </section>
+            </form>
        <div className="btn"> <button onClick={handleClickAdd} className=" custom-btn add-new-task">ADD</button></div>
         <div>Số lượng: {counter}</div>
 
@@ -82,7 +92,7 @@ const TodoList = (props) => {
             {/* {props.edit ? ( */}
                 <div className="deadline">{item.deadline}</div>
                 <div className="newTask">{item.newTask}</div>
-                <button className="todo-button edit">
+                <button onClick={handleSubmit} className="todo-button edit">
                         Cập nhật
                     </button>
             </form>
@@ -92,6 +102,7 @@ const TodoList = (props) => {
     })}
     </div>
          </section>
+        
     )
 }
 

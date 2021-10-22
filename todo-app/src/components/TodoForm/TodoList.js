@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import './TodoForm.css'
 import TodoForm from "./TodoForm";
 import Todo from "./Todo1";
+import {MyContext} from '../../context/MyContext'
 
 function TodoList() {
     const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")?? "[]"));
@@ -24,10 +25,15 @@ function TodoList() {
             prev.map((item) => (item.id === todoId ? newValue : item))
         );
     };
-
+    const [counter, setCounter] = useState(0)
+    const {setCount} = useContext(MyContext)
+    useEffect(() => {
+        console.log('Counter Change');
+        setCount(counter);
+    },[counter]);
     const removeTodo = (id) => {
         const removedArr = [...todos].filter((todo) => todo.id !== id);
-
+        setCounter(counter - 1);
         setTodos(removedArr);
     };
 
@@ -46,25 +52,20 @@ function TodoList() {
     })
 
     return (
-        <>
-            <h1 style={styles.h1}>Công việc ngày hôm nay?</h1>
+        <section >
             <TodoForm onSubmit={addTodo} />
+            <div className="container">
             <Todo
                 todos={todos}
                 completeTodo={completeTodo}
                 removeTodo={removeTodo}
                 updateTodo={updateTodo}
             />
-        </>
+            </div>
+        </section>
     );
 }
 
-const styles = {
-    h1: {
-        margin: " 32px 0",
-        color: "#fff",
-        fontSize: "24px",
-    },
-};
+
 
 export default TodoList;

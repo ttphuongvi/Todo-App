@@ -1,21 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './TodoForm.css'
 import TodoForm from './TodoForm';
 // import { RiCloseCircleLine } from 'react-icons/ri';
 // import { TiEdit } from 'react-icons/ti';
-import {ReactComponent as TiEdit} from '../TodoAppTimeline/school.svg'
-import {ReactComponent as RiCloseCircleLine} from '../TodoAppTimeline/work.svg'
+import {TiEdit} from 'react-icons/ti'
+import {RiCloseCircleLine} from 'react-icons/ri'
+import { TodoContext } from '../../context/TodoContext';
+
 const Todo1 = ({ todos, completeTodo, removeTodo, updateTodo }) => {
+    const {data, setData} = useContext(TodoContext)
   const [edit, setEdit] = useState({
     id: null,
-    value: ''
+    value: '',
+    deadline: ''
   });
 
   const submitUpdate = value => {
     updateTodo(edit.id, value);
     setEdit({
       id: null,
-      value: ''
+      value: '',
+      deadline: ''
     });
   };
 
@@ -28,16 +33,19 @@ const Todo1 = ({ todos, completeTodo, removeTodo, updateTodo }) => {
       className={todo.isComplete ? 'todo-row complete' : 'todo-row'}
       key={index}
     >
-      <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-        {todo.text}
-      </div>
+        <div className="deadline" onClick={() => completeTodo(todo.id)}>
+            {todo.deadline}
+        </div>
+        <div key={todo.id} onClick={() => completeTodo(todo.id)}>
+            {todo.text}
+        </div>
       <div className='icons'>
         <RiCloseCircleLine
           onClick={() => removeTodo(todo.id)}
           className='delete-icon'
         />
         <TiEdit
-          onClick={() => setEdit({ id: todo.id, value: todo.text })}
+          onClick={() => setEdit({ id: todo.id, value: todo.text, deadline: todo.deadline})}
           className='edit-icon'
         />
       </div>

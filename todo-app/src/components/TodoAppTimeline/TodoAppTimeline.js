@@ -1,16 +1,18 @@
 import React, { useContext } from 'react';
+import './Timeline.css'
 import { TodoContext } from '../../context/TodoContext';
 import { MyContext } from '../../context/MyContext'
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { ReactComponent as WorkIcon } from "./work.svg";
 import { ReactComponent as SchoolIcon } from "./school.svg";
-
+import {TodoList} from '../TodoForm/TodoList'
 export function TodoAppTimeline() {
     const { data } = useContext(TodoContext);
     const {count} = useContext(MyContext);
     return (
         <>
+        
         <div>Số lượng: {count}</div>  
         <div style={{ backgroundColor: '#3da3d5' }}>
         
@@ -33,12 +35,14 @@ export function TodoAppTimeline() {
                                 {item.deadline}
                             </h5>
                             {!item.isCompleted && (
-                                <button style={{ padding: 9, margin: 3, backgroundColor: '#06d6a0', color: 'white' }}>
+                                <button className={item.isCompleted ? 'completed' : 'unCompleted'}
+                                style={{ padding: 9, margin: 3, backgroundColor: '#06d6a0', color: 'white' }}>
                                     Complete
                                 </button>
                             )}
                             {item.isCompleted && (
-                                <button style={{ padding: 9, margin: 3, backgroundColor: 'red', color: 'white' }}>
+                                <button className={item.isCompleted ? 'completed' : 'unCompleted'}
+                                 style={{ padding: 9, margin: 3, backgroundColor: 'red', color: 'white' }}>
                                     Uncomplete
                                 </button>
                             )}

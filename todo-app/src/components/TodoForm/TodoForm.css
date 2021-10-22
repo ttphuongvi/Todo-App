@@ -27,7 +27,7 @@
     outline: none;
     width: 320px;
     background: transparent;
-    color: #000;
+    color: #fff;
 }
 
 .todo-input::placeholder {
@@ -76,7 +76,7 @@
 
     padding: 16px;
     border-radius: 5px;
-    width: 90%;
+    width: 80%;
     height: 20px;
 }
 
@@ -108,12 +108,17 @@
 .delete-icon {
     margin-right: 5px;
     color: #fff;
-    font-size: 24px;
-    width: 20px;
 }
 
 .edit-icon {
     color: #fff;
-    font-size: 10px;
-    width: 20px;
+}
+
+.container {
+    background-color: #1A1A2E;
+    width: 60%;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 20px;
+    min-height: 1000px;
 }

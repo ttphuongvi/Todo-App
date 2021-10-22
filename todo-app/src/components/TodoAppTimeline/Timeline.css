@@ -1,0 +1,15 @@
+.unCompleted {
+    padding: 9px;
+    margin: 3px;
+    background-color: red;
+    color: white
+}
+
+.completed {
+    padding: 9px;
+    margin: 3px;
+    background-color: #06d6a0;
+    color: white;
+    text-decoration: line-through;
+    opacity: 0.4;
+}
