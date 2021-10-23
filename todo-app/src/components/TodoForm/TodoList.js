@@ -4,7 +4,7 @@ import TodoForm from "./TodoForm";
 import Todo from "./Todo1";
 import { MyContext } from "../../context/MyContext";
 import { TodoContext } from "../../context/TodoContext";
-function TodoList() {
+const TodoList = () => {
     const { data, setData } = useContext(TodoContext);
     const addTodo = (todo) => {
         if (!todo.newTask || /^\s*$/.test(todo.newTask)) {
@@ -51,7 +51,8 @@ function TodoList() {
     return (
         <section>
             <TodoForm onSubmit={addTodo} />
-            <div className="container">
+            <div className="container-big">
+            <div className="container-small">
             <div className="container-count">
                 <div className="sum-todos">Number of Todos:</div>
                 <div className="count"> {count}</div>
@@ -65,8 +66,9 @@ function TodoList() {
                 >
                 </Todo>
             </div>
+            </div>
         </section>
     );
-}
+};
 
 export default TodoList;

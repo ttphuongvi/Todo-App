@@ -16,9 +16,7 @@
     opacity: 0.4;
 }
 
-.todo-form {
-    margin-bottom: 32px;
-}
+
 
 .todo-input {
     padding: 14px 32px 14px 16px;
@@ -114,13 +112,18 @@
     color: #fff;
 }
 
-.container {
+.container-small {
     background-color: #1A1A2E;
     width: 60%;
     margin: 0 auto;
     padding: 15px;
     border-radius: 20px;
     min-height: 1000px;
+}
+
+.container-big {
+    padding-top: 30px;
+    background-color: #eee;
 }
 
 .container-todoList {
@@ -165,6 +168,7 @@ label {
         7px 7px 20px 0px rgba(0, 0, 0, .1),
         4px 4px 5px 0px rgba(0, 0, 0, .1);
     outline: none;
+    margin-bottom: 10px;
 }
 
 .add-new-task {

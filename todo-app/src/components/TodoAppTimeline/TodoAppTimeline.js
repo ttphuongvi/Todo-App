@@ -36,16 +36,16 @@ export function TodoAppTimeline() {
                         <VerticalTimelineElement
                             key={item.id}
                             date={item.deadline}
-                            // className="vertical-timeline-element--work"
+                            className="vertical-timeline-element--work"
                             iconStyle={item.isCompleted ? { background: "#0fca0f" } : {background: "#FF7600"}}
                             contentStyle={{ color: "#fff", background: "#fff" }}
                             contentArrowStyle={{ borderRight: "7px solid  #fff" }}
                             icon={item.isCompleted ? <IoCheckmarkDoneSharp/> : <SiWheniwork/>}
                         >
-                            <h3 className="vertical-timeline-element-title">
+                            <h3 className={item.isCompleted ? "todo-iscompledted" : "vertical-timeline-element-title"}>
                                 {item.newTask}
                             </h3>
-                            <h5 className="vertical-timeline-element-subtitle">
+                            <h5 className={item.isCompleted ? "todo-iscompledted" : "vertical-timeline-element-subtitle"} >
                                 {item.deadline}
                             </h5>
                             <h2>{item.isCompleted ? 'Complete' : 'Uncomplete'}</h2>

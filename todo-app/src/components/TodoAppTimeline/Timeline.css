@@ -24,8 +24,15 @@
     min-width: 15%;
 }
 
+.todo-iscompledted {
+    text-decoration: line-through;
+    opacity: 0.4;
+    color: #1A1A2E;
+    margin: 0px;
+}
+
 .container-vertical-timeline {
-    background: #fff;
+    background: #eee;
     padding: 20px;
 }
 
