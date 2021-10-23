@@ -15,7 +15,7 @@ const About = () => {
                         return (
                             <div className="set-info">
                                 <div className="title-info">{value.title}: </div>
-                                <div>{value.content}</div>
+                                <div className="content">{value.content}</div>
                             </div>
                         )
                     })}

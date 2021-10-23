@@ -1,8 +1,9 @@
 .container-about-small {
     background-color: #1A1A2E;
     color: #fff;
-    height: 350px;
-    width: 42%;
+    height: 400px;
+    min-width: 40%;
+    max-width: 50%;
     border-radius: 20px;
     margin: 0 auto;
 }
@@ -50,4 +51,7 @@
 .title-info {
     min-width: 150px;
     color: aqua;
+}
+.content {
+	min-width: 300px;
 }
