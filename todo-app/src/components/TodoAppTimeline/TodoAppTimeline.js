@@ -6,6 +6,9 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import { ReactComponent as WorkIcon } from "./work.svg";
 import { ReactComponent as SchoolIcon } from "./school.svg";
+import {IoCheckmarkDoneSharp} from 'react-icons/io5'
+import { SiWheniwork} from "react-icons/si";
+import { FaTrashAlt } from "react-icons/fa"
 
 export function TodoAppTimeline() {
     const { data, setData } = useContext(TodoContext);
@@ -28,11 +31,11 @@ export function TodoAppTimeline() {
         setData([...newValue]);
     }
     return (
-        <>
-        
-        <div>Số lượng: {count}</div>  
-        <div style={{ backgroundColor: '#3da3d5' }}>
-        
+        <div className="container-vertical-timeline">
+            <div className="container-count">
+                <div className="sum-todos">Number of Todos:</div>
+                <div className="count"> {count}</div>
+            </div>
             <VerticalTimeline>
                 {data.map((item, index) => {
                     return (
@@ -40,10 +43,10 @@ export function TodoAppTimeline() {
                             key={item.id}
                             date={item.deadline}
                             className="vertical-timeline-element--work"
-                            iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-                            contentStyle={{ color: "rgb(33, 150, 243)", background: "#fff" }}
+                            iconStyle={item.isCompleted ? { background: "#FF7600" } : {background: "#0fca0f"}}
+                            contentStyle={{ color: "#170055", background: "#fff" }}
                             contentArrowStyle={{ borderRight: "7px solid  #fff" }}
-                            icon={item.isCompleted ? <SchoolIcon /> : <WorkIcon />}
+                            icon={item.isCompleted ? <SiWheniwork/> : <IoCheckmarkDoneSharp/>}
                         >
                             <h3 className="vertical-timeline-element-title">
                                 {item.newTask}
@@ -54,23 +57,18 @@ export function TodoAppTimeline() {
                             <h2>{item.isCompleted ? 'Uncomplete' : 'Complete'}</h2>
                             {!item.isCompleted ? (
                                 <button onClick={() => completeClick(index)} className={item.isCompleted ? 'Uncompleted' : 'completed'}
-                                style={{ padding: 9, margin: 3, backgroundColor: '#06d6a0', color: 'white' }}>
-                                    Complete
-                                </button>
+                                ><IoCheckmarkDoneSharp></IoCheckmarkDoneSharp>     Complete</button>
                             ) :
                             (
                                 <button onClick={ () => unCompleteClick(index)} className={item.isCompleted ? 'uncompleted' : 'completed'}
-                                 style={{ padding: 9, margin: 3, backgroundColor: 'red', color: 'white' }}>
-                                    Uncomplete
-                                </button>
+                                 ><SiWheniwork/>     Uncomplete</button>
                             )}
-                            <button onClick= {() => onClickDeleted(index)}>Delete</button>
+                            <button className="delete" onClick= {() => onClickDeleted(index)}><FaTrashAlt/>     Delete</button>
                         </VerticalTimelineElement>
                     )
                 })}
             </VerticalTimeline>
         </div>
-        </>
     );
 };
 export default TodoAppTimeline;

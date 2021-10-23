@@ -1,15 +1,72 @@
-.unCompleted {
-    padding: 9px;
-    margin: 3px;
-    background-color: red;
-    color: white
+.uncompleted {
+    margin: 8px;
+    background-color: #FF7600;
+    border: #FF7600;
+    color: white;
+    /* text-decoration: line-through;
+    opacity: 0.4; */
+    border-radius: 5px;
+    height: 30px;
+    padding: 5px;
+    min-width: 20%;
 }
 
 .completed {
-    padding: 9px;
-    margin: 3px;
-    background-color: #06d6a0;
+    margin: 8px;
+    background-color: #0fca0f;
+    border: #0fca0f;
     color: white;
-    text-decoration: line-through;
-    opacity: 0.4;
+    /* text-decoration: line-through;
+    opacity: 0.4; */
+    border-radius: 5px;
+    height: 30px;
+    padding: 5px;
+    min-width: 15%;
+}
+
+.container-vertical-timeline {
+    background: #fff;
+    padding: 20px;
+}
+
+.container-count {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sum-todos {
+    font-size: larger;
+    font-weight: 900;
+    margin-right: 10px;
+    margin-left: 7%;
+    color: #fff;
+}
+
+.count {
+    color: #fff;
+    background-color: rgb(233, 19, 19);
+    padding: 3px;
+    min-width: 5%;
+    display: flex;
+    justify-content: center;
+    max-width: fit-content;
+    border-radius: 5px;
+    font-size: larger;
+    font-weight: 700;
+}
+
+.container-vertical-timeline {
+    background-color: #1A1A2E;
+}
+
+.delete {
+    padding: 5px;
+    min-width: 15%;
+    background-color: red;
+    border: red;
+    border-radius: 5px;
+    height: 30px;
+    color: #fff;
 }

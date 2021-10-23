@@ -22,8 +22,6 @@ function TodoList() {
             prev.map((item) => (item.id === todoId ? newValue : item))
         );
     };
-    const [newTask, setNewTask] = useState(0);
-    const [deadline, setDeadline] = useState(0);
     const [counter, setCounter] = useState(0);
     const removeTodo = (id) => {
         const removedArr = [...data].filter((todo) => todo.id !== id);

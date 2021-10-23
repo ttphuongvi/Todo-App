@@ -23,7 +23,7 @@ const initData = [
 
 export const TodoContextProvider = ({ children }) => {
     const baseData = [
-        // ...initData,
+        ...initData,
         ...JSON.parse(localStorage.getItem("todos") ?? "[]"),
     ];
     const { count, setCount } = useContext(MyContext);

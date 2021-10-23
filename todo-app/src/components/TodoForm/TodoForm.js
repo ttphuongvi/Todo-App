@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import "./TodoForm.css";
 import "../AddTodo/Todo.css";
-import { TodoContext } from "../../context/TodoContext";
-import { MyContext } from "../../context/MyContext";
 const TodoForm = (props) => {
     const [newTask, setNewTask] = useState(
         props.edit ? props.edit.newTask : ""
