@@ -122,3 +122,241 @@
     border-radius: 20px;
     min-height: 1000px;
 }
+
+.container-todoList {
+    background-color: #eeeeee;
+}
+
+.form-add-todo {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #eeeeee; */
+}
+
+
+.form-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+label {
+    width: 100px;
+    min-width: 100px;
+}
+
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
+}
+
+.add-new-task {
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    background: #1C0C5B;
+    background: linear-gradient((0deg, #1C0C5B) 0%, #3D2C8D 100%);
+}
+
+.btn {
+    justify-content: center;
+    display: flex;
+}
+
+.add-new-task:hover {
+    color: #170055;
+    background: transparent;
+    box-shadow: none;
+}
+
+.add-new-task:before,
+.add-new-task:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #170055;
+    box-shadow:
+        -1px -1px 5px 0px #fff,
+        7px 7px 20px 0px #0003,
+        4px 4px 5px 0px #0002;
+    transition: 400ms ease all;
+}
+
+.add-new-task:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+.add-new-task:hover:before,
+.add-new-task:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+}
+
+
+:focus {
+    outline: none;
+}
+
+.input {
+    float: left;
+    margin: 20px 3%;
+    position: relative;
+    outline: none;
+    height: 26px;
+    width: 300px;
+    border-radius: 4px;
+    padding: 0px 0px 15px 0px;
+}
+
+/* necessary to give position: relative to parent. */
+input[type="text"] {
+    font: 15px/24px "Lato", Arial, sans-serif;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+
+.effect {
+    border: 1px solid rgb(98, 91, 161);
+    padding: 7px 14px 9px;
+    transition: 0.4s;
+    border-radius: 5px;
+}
+
+
+
+.effect~.focus-border:before,
+.effect~.focus-border:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #170055;
+    transition: 0.3s;
+}
+
+.effect~.focus-border:after {
+    top: auto;
+    bottom: 0;
+    left: auto;
+    right: 0;
+}
+
+.effect~.focus-border i:before,
+.effect~.focus-border i:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 0;
+    background-color: #170055;
+    transition: 0.4s;
+}
+
+.effect~.focus-border i:after {
+    left: auto;
+    right: 0;
+    top: auto;
+    bottom: 0;
+}
+
+.effect:focus~.focus-border:before,
+.effect:focus~.focus-border:after {
+    width: 100%;
+    transition: 0.3s;
+}
+
+.effect:focus~.focus-border i:before,
+.effect:focus~.focus-border i:after {
+    height: 100%;
+    transition: 0.4s;
+}
+
+
+.form-newTask {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-width: 35%;
+    max-width: 35%;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-width: 5px;
+    padding: 8px;
+    border-right: #170055 solid;
+    background-color: #fff;
+}
+
+.deadline {
+    background-color: #1dd310;
+    min-width: 80px;
+    min-height: 30px;
+    color: #fff;
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+
+}
+
+.container-count {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sum-todos {
+    color: #fff;
+    font-size: larger;
+    font-weight: 900;
+    margin-right: 10px;
+    margin-left: 7%;
+}
+
+.count {
+    color: #fff;
+    background-color: rgb(233, 19, 19);
+    padding: 3px;
+    min-width: 5%;
+    display: flex;
+    justify-content: center;
+    max-width: fit-content;
+    border-radius: 5px;
+    font-size: larger;
+    font-weight: 700;
+
+}

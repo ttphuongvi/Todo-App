@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./TodoForm.css";
 import "../AddTodo/Todo.css";
 import { TodoContext } from "../../context/TodoContext";
 import { MyContext } from "../../context/MyContext";
 const TodoForm = (props) => {
-    const { data, setData } = useContext(TodoContext);
     const [newTask, setNewTask] = useState(
         props.edit ? props.edit.newTask : ""
     );
@@ -17,8 +16,6 @@ const TodoForm = (props) => {
     const handleDeadlineChange = (e) => {
         setDeadline(e.target.value);
     };
-
-    const { count, setCount } = useContext(MyContext);
     const handleSubmit = (e) => {
         e.preventDefault();
         props.onSubmit({
@@ -29,12 +26,7 @@ const TodoForm = (props) => {
 
         setNewTask("");
         setDeadline("");
-    };
-
-    useEffect(() => {
-        setCount(data.length);
-        console.log(`Counter Change ${count}`);
-    }); // TODO fix
+    };// TODO fix
 
     return (
         <form onSubmit={handleSubmit} className="todo-form">
@@ -100,7 +92,6 @@ const TodoForm = (props) => {
                             ADD
                         </button>
                     </form>
-                    <div>Số lượng: {count}</div>
                 </section>
             )}
         </form>

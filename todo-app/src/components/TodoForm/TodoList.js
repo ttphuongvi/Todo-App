@@ -25,7 +25,6 @@ function TodoList() {
     const [newTask, setNewTask] = useState(0);
     const [deadline, setDeadline] = useState(0);
     const [counter, setCounter] = useState(0);
-    const { setCount } = useContext(MyContext);
     const removeTodo = (id) => {
         const removedArr = [...data].filter((todo) => todo.id !== id);
         setCounter(counter - 1);
@@ -41,26 +40,32 @@ function TodoList() {
         });
         setData(updatedTodos);
     };
+    const { count, setCount } = useContext(MyContext);
+    useEffect(() => {
+        setCount(data.length);
+        console.log(`Counter Change ${count}`);
+    }); // TODO fix
 
     useEffect(() => {
         localStorage.setItem("todos", JSON.stringify(data));
     });
 
-    useEffect(() => {
-        console.log("Counter Change");
-        setCount(counter);
-    }, [counter]);
-
     return (
         <section>
             <TodoForm onSubmit={addTodo} />
             <div className="container">
+            <div className="container-count">
+                <div className="sum-todos">Number of Todos:</div>
+                <div className="count"> {count}</div>
+            </div>
+            
                 <Todo
                     data={data}
                     completeTodo={completeTodo}
                     removeTodo={removeTodo}
                     updateTodo={updateTodo}
-                />
+                >
+                </Todo>
             </div>
         </section>
     );
