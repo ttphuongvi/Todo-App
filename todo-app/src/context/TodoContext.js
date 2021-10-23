@@ -8,14 +8,14 @@ export const TodoContext = createContext({
 const initData = [
     {
         id: 1,
-        newTask: "Hoc ReactJs va lam do an",
+        newTask: "Tìm hiểu ReactJs và làm đồ án",
         isCompleted: false,
-        deadline: "23/10/2021",
+        deadline: "14/11/2021",
     },
 
     {
         id: 2,
-        newTask: "Hoc ReactJs",
+        newTask: "Làm Lab OOAD",
         isCompleted: true,
         deadline: "23/10/2021",
     },
