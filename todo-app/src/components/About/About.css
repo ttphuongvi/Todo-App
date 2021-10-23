@@ -1,0 +1,53 @@
+.container-about-small {
+    background-color: #1A1A2E;
+    color: #fff;
+    height: 350px;
+    width: 42%;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.container-about {
+    background-color: #eee;
+    height: 600px;
+}
+
+.title {
+    text-align: center;
+    font-weight: 900;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+.my-img {
+    width: 160px;
+    height: 200px;
+    margin-left: 30px;
+    border-radius: 20px;
+}
+
+.form-about {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.between {
+    margin-left: 30px;
+    background-color: #fff;
+    width: 2px;
+    height: 250px;
+    border: 3px #fff;
+}
+
+.set-info {
+    display: flex;
+    flex-direction: row;
+    margin: 12px 0px 12px 20px;
+}
+
+.title-info {
+    min-width: 150px;
+    color: aqua;
+}
