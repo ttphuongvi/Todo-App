@@ -4,7 +4,7 @@ function Header() {
   return (
     <header className="header">
             <p to="/Todo-App" className="logo">TODO APP</p>
-          <a href="" target="_blank" className="profile">XIN CHÀO BẠN!</a>
+          <div href="" target="_blank" className="profile">Hello! Welcome to Todo App</div>
         </header>
   )
 }

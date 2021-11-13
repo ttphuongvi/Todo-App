@@ -32,7 +32,7 @@ const TodoList = () => {
     const completeTodo = (id) => {
         let updatedTodos = data.map((todo) => {
             if (todo.id === id) {
-                todo.isComplete = !todo.isComplete;
+                todo.isCompleted = !todo.isCompleted;
             }
             return todo;
         });
